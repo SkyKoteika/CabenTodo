@@ -18,7 +18,7 @@ function Footer(){
           size = {40}
           required
           placeholder="Email adress"
-        />
+                    />
         <button type="submit" id="formbutt">Submit</button>
         </div>
       </form>

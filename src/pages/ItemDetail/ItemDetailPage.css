@@ -25,7 +25,7 @@
 }
 
 .right-panel {
-    padding-left: 5px;
+    padding-left: 10px;
     flex: 1 1 auto;
     /* background-color: lightgrey; */
     display: flex;
@@ -43,7 +43,6 @@
 }
 
 .panel-img {
-    padding-top: 15px;
     height: 45em;
     /* height: 110vh; */
      /* width: ;  */
@@ -62,6 +61,7 @@
 .buttons{
     display: flex;
     justify-content: space-between;
+    margin-right: 10px;
 }
 
 .add {

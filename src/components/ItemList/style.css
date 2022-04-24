@@ -1,6 +1,6 @@
 .item-list {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-flow: row wrap;
 }
 
@@ -8,25 +8,18 @@
   width: 274px;
   height: 401px;
   padding: 5px;
-  /* background-color: rgb(194, 194, 194); */
   margin: 13px 0 5px 0;
-  text-align: center;
-  color: black;
-  /* border: 1px solid grey; */
-  border-radius: 5px;
   cursor: pointer;
   transition-duration: 0.4s;
 }
 .item:hover{
   background-color: rgb(180, 180, 180);
-  border-radius: 5px;
 }
 
 .item img {
   height: 89%;
   width: 100%;
-  border-radius: 5px;
-  /* color: #ffffff; */
+
 }
 
 .item-list a {

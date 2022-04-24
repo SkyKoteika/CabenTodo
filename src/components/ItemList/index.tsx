@@ -16,7 +16,7 @@ const ItemList = (props: ItemListProps) => {
                     <Link key={item.id} to={`/items/${item.id}`}>
                         <div className="item">
                             <img src={item.imageUrl} alt='image' />
-                            <span className="description">{item.title}: {item.price}$</span>
+                            <span className="description">{item.title}: ${item.price}</span>
                         </div>
                     </Link>
                 ))

@@ -17,7 +17,6 @@ header img {
     display: flex;
     justify-content: center;
     margin: auto;
-    padding-right: 125px;
 }
 
 .id {
@@ -28,5 +27,12 @@ header img {
 }
 
 .headerLink {
+    text-decoration: none;
+}
+.signIn {
+    margin-right: 10px;
+    width: 65px;
+    color: white;
+    font-size: 20px;
     text-decoration: none;
 }

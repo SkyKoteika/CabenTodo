@@ -18,7 +18,7 @@ class BackendClient implements IBackendClient {
             .then(response => response.data);
     }
     async getShopItemDetail(itemId: number | null): Promise<ShopItem> {
-        return await axios.get<ShopItem>(this.baseUrl + `/items/:itemId`, {params: {itemId}})
+        return await axios.get<ShopItem>(this.baseUrl + `/items/${itemId}`)
             .then(response => response.data)
         
     }

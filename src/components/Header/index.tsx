@@ -6,6 +6,7 @@ import CategoryList from '../CategoryList';
 import UserLogo from '../Icons/UserLogo';
 import './header.css'
 import image from './logoCaben_Todo1.png'
+import userLogo from '../../images/icons8-user-64.png'
 
 const Header = () => {
    const [categories, setCategories] = useState<Category[]>([]);
@@ -21,8 +22,8 @@ const Header = () => {
             <img src={image} alt="Caben-Todo" className="LogoCaben_Todo" />
          </Link>
          <CategoryList categories={categories} />
-         <Link to={"/"}>
-           {/* <UserLogo height={30} /> */}
+         <Link to={"/signIn"} className="signIn">
+           <span className=''>Sing In</span>
          </Link>
       </header>
    );
