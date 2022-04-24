@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.content {
+  flex: 1 1 auto;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+

@@ -1,0 +1,14 @@
+.upper {
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+  }
+  #uppertext {
+    text-align: center;
+  }
+  
+  .bigimg {
+    height: 1000px;
+    width: 100%;
+    margin: auto;
+  }

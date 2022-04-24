@@ -1,0 +1,32 @@
+header {
+    background-color: black;
+    color: white;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    line-height: 60px;
+    box-shadow: 0 7px 3px rgba(0, 0, 0, 0.23), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+header img {
+    height: 60px;
+}
+
+.item-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding-right: 125px;
+}
+
+.id {
+    color: white;
+    text-decoration: none;
+    padding: auto;
+    margin: 0 25px;
+}
+
+.headerLink {
+    text-decoration: none;
+}

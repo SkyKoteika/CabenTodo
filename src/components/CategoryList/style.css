@@ -1,0 +1,21 @@
+.categories-container {
+  width: 100%;
+}
+
+.categories-corusel {
+  width: 100%;
+  padding-right: 20px;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.category {
+  text-decoration: none;
+  margin: 0 25px;
+}
+
+
+.category .title {
+  font-size: 20px;
+  color: white;
+}
