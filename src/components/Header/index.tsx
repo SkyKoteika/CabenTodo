@@ -22,7 +22,7 @@ const Header = () => {
             <img src={image} alt="Caben-Todo" className="LogoCaben_Todo" />
          </Link>
          <CategoryList categories={categories} />
-         <Link to={"/signIn"} className="signIn">
+         <Link to="/signin" className="signIn">
            <span className=''>Sing In</span>
          </Link>
       </header>

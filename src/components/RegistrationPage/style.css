@@ -1,0 +1,27 @@
+.Registration{
+    display: flex;
+    justify-content: center;
+    font-family: 'Fjalla One', sans-serif;
+}
+.username, .password{
+    width: 253px;
+    height: 32px;
+}
+.registration{
+    height: 37px;
+    display: block;
+    margin: 15px auto;
+    width:  260.2px;
+    color: white;
+    background-color: black;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    border: none;
+}
+.registration:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid #000000;
+    cursor: pointer;
+}

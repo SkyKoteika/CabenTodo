@@ -4,6 +4,7 @@ import {
 import App from "./components/App";
 import LoginPage from "./components/LoginPage";
 import PurchasePage from "./components/Purchase";
+import RegistrationPage from "./components/RegistrationPage";
 import ShopItemDetail from "./pages/ItemDetail";
 import ItemListPage from "./pages/ItemListPage";
 import MainPage from "./pages/MainPage";
@@ -21,9 +22,10 @@ const AppRoutes = () => {
                 </Routes>
             </App>
             <Routes>
-                <Route path="signIn" element={<LoginPage />} />
+                <Route path="signin" element={<LoginPage />} />
+                <Route path="register" element={<RegistrationPage />} />
             </Routes>
         </Router>
     );
 }
-export default AppRoutes
+export default AppRoutes;
