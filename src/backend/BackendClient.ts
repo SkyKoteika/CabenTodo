@@ -27,8 +27,8 @@ class BackendClient implements IBackendClient {
         return await axios.post<User>(this.baseUrl + `/signin`)
         .then(response => response.data);
     }
-    async postRegistration(): Promise<User> {
-       return await axios.post<User>(this.baseUrl + `/register`)
+    async postSignUp(): Promise<User> {
+       return await axios.post<User>(this.baseUrl + `/signup`)
        .then(response => response.data);
     }
 }

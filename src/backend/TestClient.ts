@@ -5,10 +5,10 @@ import { itemCategories, items,testCategories } from "../testData";
 import IBackendClient from "./IBackendClient";
 
 class TestClient implements IBackendClient {
-    postSignIn(): Promise<User> {
+    postSignUp(): Promise<User> {
         throw new Error("Method not implemented.");
     }
-    postRegistration(): Promise<User> {
+    postSignIn(): Promise<User> {
         throw new Error("Method not implemented.");
     }
     getShopItemDetail(categoryId: number | null): Promise<ShopItem> {
