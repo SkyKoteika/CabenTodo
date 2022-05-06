@@ -14,7 +14,7 @@ const Header = () => {
 
    useEffect(() => {
       backend.getCategories().then(setCategories);
-   }, [])
+   }, [categories])
 
    return (
       <header>

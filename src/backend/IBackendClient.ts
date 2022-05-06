@@ -6,7 +6,7 @@ interface IBackendClient {
     getCategories() : Promise<Category[]>
     getShopItems(categoryId: number | null) : Promise<ShopItem[]>
     getShopItemDetail(itemId: number | null) : Promise<ShopItem>
-    postSignUp() : Promise<User>
+    postSignUp(username: string,email:string, password: string) : Promise<User>
     postSignIn(username: string, password: string) : Promise<User>
 }
 

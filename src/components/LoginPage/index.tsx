@@ -13,13 +13,15 @@ const LoginPage = () => {
 
     return(
         <div className="Login" >
+            <div className="LogConteiner">
                 <h2>Sign In</h2>
                 <p>Enter your username: </p>
                 <input type="text" required  className="username" value={username} onChange={event => setUsername(event.target.value)}/>
                 <p>Enter your password: </p>
-                <input type="password" name="pwd" required  className="password" />
+                <input type="password" name="pwd" required value={password}  onChange={event => setPassword(event.target.value)} className="password" />
                 <Link to="/signup" className="account">Don't have account? Click here</Link>
-                <button onClick={handleLogin}>Sign In</button>
+                <button className="signin" onClick={handleLogin}>Sign In</button>
+            </div>
         </div>
     )
 }

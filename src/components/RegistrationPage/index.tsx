@@ -1,30 +1,31 @@
 
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import useBackend from "../../hooks/useBackend";
 import User from "../../models/User";
 import "./style.css";
 
 const RegistrationPage = () => {
-    const [user, setUser] = useState<User>();
     const [username, setUsername] = useState("");
-
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [user, setUser] = useState<User>();
     const backend = useBackend();
-    useEffect(() => {
-        backend.postSignIn().then(setUser)
-    });
-    return(
+    // const handleLogin = useCallback(() => backend.postSignUp(username, email, password).then(setUser), [username, email, password]);
+    const handleRegistration = useCallback(() => backend.postSignUp(username, email, password).then(setUser), [username, email, password]);
+
+    return (
         <div className="Registration">
-            <form action="signUp">
-                <h2>Registration: </h2>
-                <p>Enter email: </p>
-                <input type="email"  className="username" />
-                <p>Enter username: </p>
-                <input type="text" required className="username" value={username}/>
-                <p>Enter password: </p>
-                <input type="password" name="pwd" required className="password" />
-                {/* <input type="confirmation" name="pwd" required className="password" /> */}
-                <input type="submit" value="Create an Account" className="registration" />
-            </form>
+            <div>
+            <h2>Registration: </h2>
+            <p>Enter email: </p>
+            <input type="email" required value={email} onChange={event => setEmail(event.target.value)} className="username" />
+            <p>Enter username: </p>
+            <input type="text" required className="username" value={username} onChange={event => setUsername(event.target.value)} />
+            <p>Enter password: </p>
+            <input type="password" name="pwd" required value={password} onChange={event => setPassword(event.target.value)} className="password" />
+            {/* <input type="password" name="pwd" required className="pwdconfirm" /> */}
+            <button className="registration" onClick={handleRegistration} >Create an Account</button>
+            </div>
         </div>
     )
 }
