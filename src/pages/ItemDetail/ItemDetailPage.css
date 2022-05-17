@@ -1,4 +1,5 @@
 .item-detail {
+    background-color: white;
     display: flex;
     margin: 35px auto;
     flex-flow: row nowrap;
@@ -45,7 +46,7 @@
 .panel-img {
     height: 45em;
     /* height: 110vh; */
-     /* width: ;  */
+    /* width: ;  */
 }
 
 .item_name,
@@ -58,7 +59,8 @@
 .price {
     color: rgb(255, 176, 30);
 }
-.buttons{
+
+.buttons {
     display: flex;
     justify-content: space-between;
     margin-right: 10px;
@@ -84,7 +86,8 @@
     color: black;
     border: 2px solid #000000;
 }
-.buy{
+
+.buy {
     display: flex;
     text-decoration: none;
     width: 49%;
@@ -98,8 +101,9 @@
     transition-duration: 0.4s;
     letter-spacing: 0;
 }
-.buy:hover{
+
+.buy:hover {
     background-color: black;
     color: white;
-    
+
 }

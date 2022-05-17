@@ -10,6 +10,9 @@ body {
 #root {
   height: 100vh;
 }
+.main-content{
+  background-color: #E8EEF2;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

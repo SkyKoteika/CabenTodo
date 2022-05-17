@@ -2,7 +2,7 @@ import './footer.css'
 
 function Footer(){
     return(
-   <div className="myfooter">
+   <footer>
     <div className="upform">
       <h2>Lorem, ipsum.</h2>
       <p>
@@ -23,7 +23,7 @@ function Footer(){
         </div>
       </form>
     </div>
-    <div className="footer">
+    <div className="footlist">
       <div className="footul">
         <h3>Lorem, ipsum:</h3>
         <ul>
@@ -56,7 +56,7 @@ function Footer(){
       </div>
     </div>
     <p className="rights">All rights are not protected</p>
-   </div>
+   </footer>
     );
 }
 export default Footer;

@@ -1,12 +1,13 @@
 import axios from "axios";
+import { getCookie, setCookie }from "../components/cookies/cookie";
 import Category from "../models/Category";
 import ShopItem from "../models/ShopItem";
+import Token from "../models/token";
 import User from "../models/User";
 import IBackendClient from "./IBackendClient";
 
 class BackendClient implements IBackendClient {
-  baseUrl = "http://localhost:8000";
-  // baseUrl = "https://firstapp-server-dworzgegoa-lm.a.run.app";
+  baseUrl = "http://localhost:8080";
 
   async getCategories(): Promise<Category[]> {
     return await axios
@@ -24,10 +25,20 @@ class BackendClient implements IBackendClient {
       .get<ShopItem>(this.baseUrl + `/items/${itemId}`)
       .then((response) => response.data);
   }
-  async postSignIn(username: string, password: string): Promise<User> {
+  async postSignIn(username: string, password: string): Promise<Token> {
     return await axios
-      .post<User>(this.baseUrl + `/signin`)
-      .then((response) => response.data);
+      .post<Token>(this.baseUrl + `/signin`, {
+        username: username,
+        password: password,
+      })
+      .then((response) => {
+        if (response.data) {
+          setCookie("accessToken", response.data.accessToken, 0.001)
+          setCookie("refreshToken", response.data.refreshToken, 0.001)
+        }
+
+        return response.data;
+      });
   }
   async postSignUp(
     username: string,
@@ -35,8 +46,29 @@ class BackendClient implements IBackendClient {
     password: string
   ): Promise<User> {
     return await axios
-      .post<User>(this.baseUrl + `/signup`)
+      .post<User>(this.baseUrl + `/signup`, {
+        username: username,
+        password: password,
+        email: email,
+      })
       .then((response) => response.data);
+  }
+  // async postCheckUser(tokenPayload: string): Promise<User> {
+  //   return await axios
+  //     .post<User>(this.baseUrl + `/checkUser`, { payload: tokenPayload })
+  //     .then((response) => response.data);
+  // }
+  async postCheckUser(): Promise<User> {
+    const token =  getCookie("accessToken");
+    return await axios.request({
+      url: this.baseUrl + `/checkUser`,
+     method: "post",
+     withCredentials: true,
+     headers:{
+        Authorization: `Bearer ${token}`
+     }
+}).then((response) => response.data)
+      
   }
 }
 

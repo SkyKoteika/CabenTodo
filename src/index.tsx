@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import BackendClient from './backend/BackendClient';
-import TestClient from './backend/TestClient';
 import {BackendContext} from './hooks/useBackend';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
