@@ -9,17 +9,15 @@ type AppChildren = {
 
 const AuthProvider = (props: AppChildren) => {
 const [user, setUser] = useState<User>();
-// const user = useAuth();
-// const [user, setUser] = useLocalStorage({},'user');
 
-// const login = (user: User) => {
-//     setUser(user);
-// }
-// const logout = () => {
-//     setUser(undefined);
-// }
+const login = (user: User) => {
+    setUser(user);
+}
+const logout = () => {
+    setUser(undefined);
+}
 
-const value = {user}
+const value = {user, login, logout}
 
 return(
 <AuthContext.Provider value={value}>

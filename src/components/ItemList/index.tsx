@@ -1,4 +1,4 @@
-import { Link, Outlet, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ShopItem from "../../models/ShopItem";
 import "./style.css";
 

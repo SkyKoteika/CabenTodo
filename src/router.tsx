@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import App from "./components/App";
 import Cart from "./components/Cart/Cart";
 import LoginPage from "./components/LoginPage";
+import { Profile } from "./components/Profile";
 import PurchasePage from "./components/Purchase";
 import RegistrationPage from "./components/RegistrationPage";
 import AuthProvider from "./hoc/AuthProvider";
@@ -21,6 +22,14 @@ const AppRoutes = () => {
             <Route path="items/:itemId" element={<ShopItemDetail />} />
             <Route path="/signin" element={<LoginPage />} />
             <Route path="/signup" element={<RegistrationPage />} />
+            <Route
+              path="/profile"
+              element={
+                <RequireAuth>
+                  <Profile />
+                </RequireAuth>
+              }
+            />
             <Route
               path="/cart"
               element={

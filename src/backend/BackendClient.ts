@@ -33,8 +33,8 @@ class BackendClient implements IBackendClient {
       })
       .then((response) => {
         if (response.data) {
-          setCookie("accessToken", response.data.accessToken, 0.001)
-          setCookie("refreshToken", response.data.refreshToken, 0.001)
+          setCookie("accessToken", response.data.accessToken, 1)
+          setCookie("refreshToken", response.data.refreshToken, 1)
         }
 
         return response.data;
@@ -53,11 +53,6 @@ class BackendClient implements IBackendClient {
       })
       .then((response) => response.data);
   }
-  // async postCheckUser(tokenPayload: string): Promise<User> {
-  //   return await axios
-  //     .post<User>(this.baseUrl + `/checkUser`, { payload: tokenPayload })
-  //     .then((response) => response.data);
-  // }
   async postCheckUser(): Promise<User> {
     const token =  getCookie("accessToken");
     return await axios.request({

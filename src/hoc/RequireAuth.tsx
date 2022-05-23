@@ -11,7 +11,7 @@ const location = useLocation();
 const user = useAuth();
 
 if(!user){
-    return <Navigate to="/signin" />
+    return <Navigate to="/signin" state={location.pathname}/>
 }
 
 

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import useBackend from "../../hooks/useBackend";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import ShopItem from "../../models/ShopItem";
 import "./ItemDetailPage.css";
 
@@ -11,6 +12,7 @@ const ShopItemDetail = () => {
     const [item, setItem] = useState<ShopItem>()
     const backend = useBackend();
     const { itemId } = useParams<ShopItemParams>();
+    // const [cartItem, setCartItem] = useLocalStorage(0,"cartItem");
 
     useEffect(() => {        
         if (itemId === null || itemId === undefined || Number.isNaN(+itemId)) {
@@ -19,6 +21,8 @@ const ShopItemDetail = () => {
 
         backend.getShopItemDetail(+itemId).then(setItem);
     }, [itemId]);
+
+    // const handleAddToCart 
 
     return (
         <div className="item-detail">
@@ -31,7 +35,7 @@ const ShopItemDetail = () => {
                 <div className="price"><span>${item?.price}</span></div>
                 <div className="line"></div>
                 <div className="buttons">
-                    <button className="add">Purchase</button>
+                    <button className="add" >Purchase</button>
                     <Link className="buy" to={`/purchase`}>Buy in One Click</Link>
                 </div>
             </div>

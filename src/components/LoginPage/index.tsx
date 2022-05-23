@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import useBackend from "../../hooks/useBackend";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import Token from "../../models/token";
 import User from "../../models/User";
 import "./style.css";
@@ -11,13 +10,13 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
-    const fromPage = location.pathname;
+    const fromPage = location.state ? location.state : "/";
     const [, setUser] = useState<Token>();
-    // const [user, setUser] = useLocalStorage({},'user');
     const backend = useBackend();
     
     const Login = useCallback(() => {backend.postSignIn(username, password).then(setUser)}, [username, password, backend]);
     const handleLogin = () =>{
+        console.log(fromPage)
         Login();
         setTimeout( () => navigate(-1), 100);
     }

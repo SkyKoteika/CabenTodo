@@ -1,0 +1,64 @@
+.user-profile {
+    display: flex;
+    justify-content: center;
+    margin: 35px auto;
+    flex-flow: row nowrap;
+    max-width: 1200px;
+    box-shadow: 10px 1px 31px -5px rgba(66, 68, 90, 1);
+}
+.left-side, .right-side{
+    height: 600px;
+    padding-top: 15px;
+}
+.left-side{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    /* justify-content: center; */
+    align-items: center;
+}
+.right-side{
+    padding-left: 10px;
+    width: 800px;
+  
+}
+.user-image{
+    display: flex;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+   
+}
+
+.verticalLine{
+margin-top: 1vh;
+height: 67vh;
+background-color: #000000;
+width: 3px;
+border-radius: 15px;
+}
+.button{
+    width: 50%;
+    height: 50px;
+    margin-top: 3px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Fjalla One', sans-serif;
+    transition-duration: 0.4s;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid #000000;
+}
+.greeting{
+font-size: 25px;
+font-weight: 300;
+}

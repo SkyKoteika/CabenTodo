@@ -35,4 +35,13 @@ const setCookie = (cname: string, cvalue: any, exdays: number) => {
   //   }
   // }
 
-  export {setCookie, getCookie}
+  const checkCookie = (cookieName: string) => {
+    let token = getCookie(cookieName);
+    if (token !== null) {
+      return token;
+    } else {
+      return undefined;
+    }
+  }
+
+  export {setCookie, getCookie , checkCookie}
