@@ -1,3 +1,7 @@
+#age-checkbox {
+  margin-right: 15px;
+}
+
 .footlist {
   display: flex;
   justify-content: space-evenly;
@@ -19,37 +23,9 @@
 
 #email {
   padding: 0 16px;
-  height: 46px;
-}
-
-#formbutt {
-  color: white;
-  padding: 0px;
-  height: 49.2px;
-  width: 100px;
-  font-size: 20px;
-  font-family: 'Fjalla One', sans-serif;
-  background-color: black;
-  border: none;
-  transition-duration: 0.4s;
-}
-
-#formbutt:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid #1A1D1A;
-  cursor: pointer;
-}
-
-.email_and_butt {
   height: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-#formbutt img {
-  height: 20px;
-  width: 15px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
 }
 
 #but {
@@ -63,15 +39,29 @@
   justify-content: center;
 
 }
-#form input {
-  accent-color: rebeccapurple;
-}
 
 .upform {
-  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 
 footer {
   background-color: #FFBA49;
   text-align: center;
+}
+
+.input-section {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  width: 450px;
+}
+
+.short-button {
+  width: 100px !important;
+}
+
+.footer-row {
+  margin-bottom: 15px;
 }

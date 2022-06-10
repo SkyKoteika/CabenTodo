@@ -1,13 +1,19 @@
 import axios from "axios";
-import { getCookie, setCookie }from "../components/cookies/cookie";
 import Category from "../models/Category";
 import ShopItem from "../models/ShopItem";
+import { Slide } from "../models/Slide";
 import Token from "../models/token";
 import User from "../models/User";
 import IBackendClient from "./IBackendClient";
 
 class BackendClient implements IBackendClient {
   baseUrl = "http://localhost:8080";
+
+  async getSaleSliderData(): Promise<Slide[]> {
+    return await axios
+      .get<Slide[]>(this.baseUrl + "/saledata")
+      .then((response) => response.data);
+  }
 
   async getCategories(): Promise<Category[]> {
     return await axios
@@ -20,6 +26,13 @@ class BackendClient implements IBackendClient {
       .get<ShopItem[]>(this.baseUrl + "/items", { params: { categoryId } })
       .then((response) => response.data);
   }
+
+  async getCartItems(cart: number[]): Promise<ShopItem[]> {
+    return await axios
+      .get<ShopItem[]>(this.baseUrl + "/CartItems", { params : { cart }})
+      .then((response) => response.data);
+  }
+
   async getShopItemDetail(itemId: number | null): Promise<ShopItem> {
     return await axios
       .get<ShopItem>(this.baseUrl + `/items/${itemId}`)
@@ -31,14 +44,7 @@ class BackendClient implements IBackendClient {
         username: username,
         password: password,
       })
-      .then((response) => {
-        if (response.data) {
-          setCookie("accessToken", response.data.accessToken, 1)
-          setCookie("refreshToken", response.data.refreshToken, 1)
-        }
-
-        return response.data;
-      });
+      .then((response) => response.data);
   }
   async postSignUp(
     username: string,
@@ -53,17 +59,17 @@ class BackendClient implements IBackendClient {
       })
       .then((response) => response.data);
   }
-  async postCheckUser(): Promise<User> {
-    const token =  getCookie("accessToken");
-    return await axios.request({
-      url: this.baseUrl + `/checkUser`,
-     method: "post",
-     withCredentials: true,
-     headers:{
-        Authorization: `Bearer ${token}`
-     }
-}).then((response) => response.data)
-      
+  async postCheckUser(token: string): Promise<User> {
+    return await axios
+      .request({
+        url: this.baseUrl + `/checkUser`,
+        method: "post",
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => response.data);
   }
 }
 

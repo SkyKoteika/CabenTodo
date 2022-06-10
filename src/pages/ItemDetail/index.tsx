@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import useBackend from "../../hooks/useBackend";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import useCart from "../../hooks/useCart";
 import ShopItem from "../../models/ShopItem";
 import "./ItemDetailPage.css";
 
@@ -12,7 +12,7 @@ const ShopItemDetail = () => {
     const [item, setItem] = useState<ShopItem>()
     const backend = useBackend();
     const { itemId } = useParams<ShopItemParams>();
-    // const [cartItem, setCartItem] = useLocalStorage(0,"cartItem");
+    const {cart, setCart} = useCart();
 
     useEffect(() => {        
         if (itemId === null || itemId === undefined || Number.isNaN(+itemId)) {
@@ -20,14 +20,20 @@ const ShopItemDetail = () => {
         }
 
         backend.getShopItemDetail(+itemId).then(setItem);
-    }, [itemId]);
+    }, [itemId, backend]);
 
-    // const handleAddToCart 
+    const setNewCart = useCallback( () => {
+        cart.push(+itemId!);
+        console.log(cart)
+        return cart
+    },[cart, itemId])
+
+    const AddToCart = useCallback(() => setCart(setNewCart()),[setCart, setNewCart]);
 
     return (
         <div className="item-detail">
             <div className="left-panel">
-                <img className="panel-img" src={item?.imageUrl} />
+                <img className="panel-img" src={item?.imageUrl} alt="stuff"/>
             </div>
             <div className="right-panel">
                 <div className="item_name"><span>{item?.title}</span></div>
@@ -35,7 +41,7 @@ const ShopItemDetail = () => {
                 <div className="price"><span>${item?.price}</span></div>
                 <div className="line"></div>
                 <div className="buttons">
-                    <button className="add" >Purchase</button>
+                    <button className="add" onClick={AddToCart}>Purchase</button>
                     <Link className="buy" to={`/purchase`}>Buy in One Click</Link>
                 </div>
             </div>

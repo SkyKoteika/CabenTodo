@@ -1,0 +1,56 @@
+.user-profile {
+    display: flex;
+    justify-content: center;
+    margin: 35px auto;
+    flex-flow: row nowrap;
+    max-width: 1200px;
+}
+
+.left-side,
+.right-side {
+    height: 600px;
+    padding-top: 15px;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.right-side {
+    padding-left: 10px;
+    width: 800px;
+
+}
+
+.button-section {
+    width: 50%;
+}
+
+.user-image {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+
+}
+
+.verticalLine {
+    margin-top: 1vh;
+    height: 67vh;
+    background-color: #000000;
+    width: 3px;
+    border-radius: 15px;
+}
+
+.greeting {
+    font-size: 25px;
+    font-weight: 300;
+}
+.logout{
+    margin-top: 5px;
+}

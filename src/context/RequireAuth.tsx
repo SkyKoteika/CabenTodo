@@ -1,6 +1,5 @@
 import { useLocation, Navigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import User from "../models/User";
+import useAuth from "./Auth/useAuth";
 
 type AppChildren = {
     children: JSX.Element
@@ -11,9 +10,8 @@ const location = useLocation();
 const user = useAuth();
 
 if(!user){
-    return <Navigate to="/signin" state={location.pathname}/>
+    return <Navigate to="/signin" state={{from: location.pathname}} replace/>
 }
-
 
     return props.children;
 }

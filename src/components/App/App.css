@@ -1,9 +1,10 @@
 .app {
   display: flex;
   flex-flow: column nowrap;
+  min-height: 100vh;
 }
 
-.content {
+.main-content {
   flex: 1 1 auto;
   overflow: hidden;
   overflow-y: scroll;

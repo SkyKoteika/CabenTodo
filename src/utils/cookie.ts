@@ -4,10 +4,10 @@ const setCookie = (cname: string, cvalue: any, exdays: number) => {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + ";secure";
+    document.cookie = `${cname}=${cvalue};${expires};path=/;secure`;
   }
 
-  const getCookie = (cname: string) => {
+  const getCookie = (cname: string) : string | null => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -20,20 +20,8 @@ const setCookie = (cname: string, cvalue: any, exdays: number) => {
         return c.substring(name.length, c.length);
       }
     }
-    return "";
+    return null;
   }
-
-  // const checkCookie = (callback: any) => {
-  //   let user = getCookie("token");
-  //   if (user != "") {
-  //    alert("Welcome again " + user);
-  //   } else {
-  //     user = prompt("Please enter your name:", "");
-  //     if (user != "" && user != null) {
-  //       setCookie("username", user, 365);
-  //     }
-  //   }
-  // }
 
   const checkCookie = (cookieName: string) => {
     let token = getCookie(cookieName);
@@ -44,4 +32,8 @@ const setCookie = (cname: string, cvalue: any, exdays: number) => {
     }
   }
 
-  export {setCookie, getCookie , checkCookie}
+  const deleteCookie = (cookieName: string) => {
+    setCookie(cookieName, "", -1);
+  }
+
+  export {setCookie, getCookie , checkCookie, deleteCookie}

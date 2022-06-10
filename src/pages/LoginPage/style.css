@@ -1,0 +1,23 @@
+.login-page {
+    padding: 25px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.login-paper {
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+}
+.username, .password{
+    width: 253px;
+    height: 32px;
+}
+
+.account{
+    display: block;
+    margin: 10px auto;
+    text-decoration: none;
+}
