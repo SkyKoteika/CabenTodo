@@ -1,7 +1,7 @@
 const PurchasePage = () => {
 
     return (
-        <div></div>
+        <div>Here will be purchase page</div>
     )
 }
 

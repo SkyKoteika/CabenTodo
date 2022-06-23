@@ -6,7 +6,7 @@ import ShopItem from "../models/ShopItem";
 
 
 const ItemListPage = () => {
-    let [params, _] = useSearchParams();
+    let [params,] = useSearchParams();
     let [items, setItems] = useState<ShopItem[]>([])
     let categoryStr = params.get("categoryId");
     let categoryId = categoryStr ? +categoryStr: null;
@@ -14,9 +14,9 @@ const ItemListPage = () => {
 
     useEffect(() => {
         backend.getShopItems(categoryId).then(setItems);
-    }, [categoryId]
+    }, [categoryId,backend]
     );
-
+    
     return <ItemList items={items} />
 }
 
