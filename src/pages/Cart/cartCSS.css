@@ -1,3 +1,30 @@
 .cart_placeholder{
   width: 600px;
 }
+.cart-item{
+  padding: 15px 10px 15px 15px ;
+  height: 300px;
+}
+.Cart{
+  background-color: white;
+  margin: 35px auto;
+  max-width: 1200px;
+  box-shadow: -1px 1px 23px -4px rgba(66, 68, 90, 1);
+}
+.cart-img{
+  height: 89%;
+
+}
+.Purchase-butt{
+  margin-top: 10px;
+}
+.trash{
+  fill: white;
+}
+.cart-text{
+  font-size: larger;
+}
+
+.delete{
+  width: 30px;
+}

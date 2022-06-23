@@ -4,6 +4,7 @@ import useCart from "../../hooks/useCart";
 import ShopItem from "../../models/ShopItem";
 import CartList from "./CartList";
 import "./cartCSS.css"
+import { checkCookie, getCookie, setCookie } from "../../utils/cookie";
 
 const Cart = () => {
   const { cart } = useCart();
@@ -11,8 +12,22 @@ const Cart = () => {
   const backend = useBackend();
 
   useEffect(() => {
-    if(!cart || cart.length === 0) return;
-
+    if(!cart || cart.length === 0){
+      if(checkCookie("cart") !== undefined){
+        let cartString = getCookie("cart");
+        if(cartString !== null){
+          let Cart = cartString.split(",");
+          cart.length = Cart.length;
+          for(let i = 0; i<cart.length; i++){
+            cart[i] = +Cart[i];
+          }
+        }else{
+          return;
+        }
+      }else{
+        return;
+      }
+    }
     backend.getCartItems(cart).then(setItems);
   }, [cart, backend]);
 

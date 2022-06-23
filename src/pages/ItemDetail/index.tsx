@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useBackend from "../../hooks/useBackend";
 import useCart from "../../hooks/useCart";
 import ShopItem from "../../models/ShopItem";
+import { setCookie } from "../../utils/cookie";
 import "./ItemDetailPage.css";
 
 type ShopItemParams = "itemId"
@@ -24,6 +25,7 @@ const ShopItemDetail = () => {
 
     const setNewCart = useCallback( () => {
         cart.push(+itemId!);
+        setCookie("cart", cart , 30);
         console.log(cart)
         return cart
     },[cart, itemId])

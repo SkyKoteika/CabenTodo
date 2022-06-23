@@ -23,13 +23,13 @@ class BackendClient implements IBackendClient {
 
   async getShopItems(categoryId: number | null): Promise<ShopItem[]> {
     return await axios
-      .get<ShopItem[]>(this.baseUrl + "/items", { params: { categoryId } })
+      .get<ShopItem[]>(this.baseUrl + `/items/category/${categoryId}`)
       .then((response) => response.data);
   }
 
-  async getCartItems(cart: number[]): Promise<ShopItem[]> {
+  async getCartItems(ids: number[]): Promise<ShopItem[]> {
     return await axios
-      .get<ShopItem[]>(this.baseUrl + "/CartItems", { params : { cart }})
+      .get<ShopItem[]>(this.baseUrl + `/items`, { params : { ids }})
       .then((response) => response.data);
   }
 
