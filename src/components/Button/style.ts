@@ -25,7 +25,7 @@ const useStyles = createUseStyles((theme) => ({
     },
 
     "&:hover": {
-      backgroundColor: "gray",
+      backgroundColor: "rgb(187, 187, 187)",
       color: "black",
       border: "2px solid #000000",
     },

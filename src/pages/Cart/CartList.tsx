@@ -42,13 +42,19 @@ const setNewCart = (index: number) => {
       <Paper>
         {
         items.map((item, index) => (
+          <div>
           <div key={index} className="cart-item">
+          <div className="left">
             <img src={item.imageUrl} alt="" className="cart-img" />
             <span className="cart-text">{item.title}</span>
             <span className="cart-text">{item.description}</span>
             <span className="cart-text">${item.price}</span>
-            <Button variant="destructive" className="delete" onClick={() => setCart(setNewCart(index))} ><Trash  className="trash" width={22} height={22} /></Button>
+            </div>   
+            <button className="delete" onClick={() => setCart(setNewCart(index))} ><Trash  className="trash" width={22} height={22} /></button>
           </div>
+           <div className="cart-line"></div>
+           </div>
+          
         ))
         }
         <Button className="Purchase-butt">Proceed to Purchase</Button>
